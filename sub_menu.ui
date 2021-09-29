@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>721</width>
+    <height>460</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(158, 213, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>200</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Registrar vuelo :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>310</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Finalizar vuelo:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>90</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Registrar Hangar:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_registro_hangar">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>80</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+font: 90 20pt &quot;MS Shell Dlg 2&quot;;
+  color:rgb(255, 255, 255);
+  
+	background-color: rgb(104, 127, 143);
+border-radius:30px;
+}
+QPushButton:hover{
+background-color: rgb(255, 0,0 );
+	color:rgb(255, 255, 255);
+}
+
+QPushButton{
+
+  color:rgb(255, 255, 255);
+  
+	
+	background-color: rgb(141, 141, 141);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Registrar hangar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_registro_vuelo">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>190</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+font: 90 20pt &quot;MS Shell Dlg 2&quot;;
+  color:rgb(255, 255, 255);
+  
+	background-color: rgb(104, 127, 143);
+border-radius:30px;
+}
+QPushButton:hover{
+background-color: rgb(255, 0,0 );
+	color:rgb(255, 255, 255);
+}
+
+QPushButton{
+
+  color:rgb(255, 255, 255);
+  
+	
+	background-color: rgb(141, 141, 141);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Registrar vuelos</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_finalizo_vuelos">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>290</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+font: 90 20pt &quot;MS Shell Dlg 2&quot;;
+  color:rgb(255, 255, 255);
+  
+	background-color: rgb(104, 127, 143);
+border-radius:30px;
+}
+QPushButton:hover{
+background-color: rgb(255, 0,0 );
+	color:rgb(255, 255, 255);
+}
+
+QPushButton{
+
+  color:rgb(255, 255, 255);
+  
+	
+	background-color: rgb(141, 141, 141);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Finalizar vuelos</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>721</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
