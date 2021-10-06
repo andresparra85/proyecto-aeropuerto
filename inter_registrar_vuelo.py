@@ -152,8 +152,6 @@ class Registre_vuelo(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase c
             i=i-1
 
     def cancelar(self):
-        if self.b:
-            self.conn.close()
         self.close()
 
 

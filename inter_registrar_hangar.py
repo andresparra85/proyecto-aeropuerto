@@ -82,15 +82,15 @@ class Registrar_hangar(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lineEdit_area_hangar.clear() 
 
     def cancelar(self):
-        if self.b:
-            self.conn.close()
         self.close()
 
 
+        """
 if __name__ == "__main__":
 
     app =  QtWidgets.QApplication(sys.argv)
     window =Registrar_hangar()
     window.show()
     sys.exit(app.exec_())
+    """
 

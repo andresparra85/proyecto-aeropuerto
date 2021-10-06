@@ -5,14 +5,14 @@ from PyQt5.QtGui import*
 from PyQt5.QtWidgets import*
 import psycopg2 #importar la libreria 
 #Librerias elementales para poder correr nuestros archivos creados en el QT dessigner
-qtCreatorFile = "inter_finalizar_vuelo.ui" # Nombre del archivo que creamos en Qt dessigener en nuestro caso calculadora_suma.iu.
+qtCreatorFile = "inter_consultar_empleado.ui" # Nombre del archivo que creamos en Qt dessigener en nuestro caso calculadora_suma.iu.
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)# nose que hace pero siempre va jajajaja
-class Finaliza_vue(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como tal seiempre igual
+class Consulta_empleado(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como tal seiempre igual
     def __init__(self):#metodo constructor 
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)# hasta aqui metodos de inicializacion siemore van no los borre
-        self.b=True
+
         self.conn=psycopg2.connect(
         host="localhost",
         database ="aeropuertodb",
@@ -20,66 +20,58 @@ class Finaliza_vue(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase com
         password="postgres1" )
         print("Coneccion exitosa")
         self.cursor=self.conn.cursor()
-        self.tabla_vuelos=QTableWidget(self)#Creacion de la tabla                 
-        self.agrega()
-        self.btn_finalizar.clicked.connect(self.finalizar) #evento de registrar
-        self.btn_cancelar.clicked.connect(self.cancelar) #evento de cncelar
-    #para las tablas      
-    def agrega(self):
-        self.tabla_vuelos.clear()
-        self.cursor.execute("select * from vuelos where estado ='En Proceso' ;")  
-        mio= self.cursor.fetchall()
-        self.inicio_tabla_vuelos()#metodo para inicializar la tabla ejecucion
-        self.datos_tabla_vuelos(self.tabla_vuelos,mio)
-        self.tabla_vuelos.show()  
-    # funcion para boton finalizar    
-    def finalizar(self):
-        #sacamos en variables toda la informacion
-        row = self.tabla_vuelos.currentRow()
-        item = self.tabla_vuelos.item(row,0)
-        t=None
-        if item:
-            t=item.text()
-        msg=QMessageBox()
-        # ponemos nombre a la ventana 
-        msg.setWindowTitle("Finalizar vuelos")
-        # aqui verificamos si el cliente existe 
-        if t:
-            self.cursor.execute("select hangar from vuelos where id_vuelo ='"+t+"';")
-            a=self.cursor.fetchone()
-            c=""
-            for i in a:
-                if i=="(" or i=="'" or i ==")" or i==",":
-                    pass
-                else:
-                    c+=str(i)
-            
-            self.cursor.execute("update hangares set estado='Libre' where id_hangar='"+c+"';")
-            self.conn.commit()
-            self.cursor.execute("update vuelos set estado='Finalizado' where id_vuelo ='"+str(t)+"';")
-            self.conn.commit()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("El vuelo: " +t +" se finalizo satisfactoriamente")
-            x=msg.exec_() 
+        self.tabla_empleados=QTableWidget(self)#Creacion de la tabla       
+        self.inicio_tabla_empleados()          
+        self.btn_consultar.clicked.connect(self.consultar) #evento de registrar
+        #self.btn_limpiar.clicked.connect(self.limpiar) #evento de cncelar
+
+    def consultar(self):
+        msg=QMessageBox() 
+        msg.setWindowTitle("consultar Empleado")
+        msg.setIcon(QMessageBox.Information) 
+ 
+        b1=True
+        ced=self.lineEdit_cedula.text()
+        if not self.lineEdit_cedula.text():
+            b1=False
+        if b1:
+            if self.verifica_cedula(ced):
+                self.tabla_empleados.clear()
+                self.cursor.execute("select * from empleados where cedula ='"+ced+"';")  
+                mio= self.cursor.fetchall()
+                self.inicio_tabla_empleados()#metodo para inicializar la tabla ejecucion
+                self.datos_tabla_empleados(self.tabla_empleados,mio)
+                msg.setText("Consulta exitosa")
+            else:
+                msg.setText("El empleado con cedula : "+ced+" no se encuentra registrado")
         else:
-            msg1=QMessageBox()
-            msg1.setWindowTitle("Finalizar vuelos")
-            msg1.setIcon(QMessageBox.Information)
-            msg1.setText("No hay vuelos en proceso")
-            y=msg1.exec_()
-        self.tabla_vuelos.clear()    
-        self.agrega()
+            msg.setText("Campos vacios")
+        x=msg.exec_()    
 
-    def inicio_tabla_vuelos(self):
-        self.tabla_vuelos.setColumnCount(9)
-        nombreColumnas = ( "id_vuelo","Origen","Destino","fecha", "hora","hangar","avion","# puestos","precio")
-        self.tabla_vuelos.setHorizontalHeaderLabels(nombreColumnas)
+    
+
+    def verifica_cedula(self,ced):
+        sql="select * from empleados where cedula ='"+ced+"';"
+        self.cursor.execute(sql)#
+        a=self.cursor.fetchall()
+        self.conn.commit()
+        if len(a)>=1 :
+            return True
+        else:
+            return False
+                  
+      
+
+    def inicio_tabla_empleados(self):
+        self.tabla_empleados.setColumnCount(9)
+        nombreColumnas = ( "Cedula","Nombre","Telefono", "Correo","Direccion","Edad","Saldo","Fecha ingreso","Estado")
+        self.tabla_empleados.setHorizontalHeaderLabels(nombreColumnas)
         for i in range(7):
-            self.tabla_vuelos.setColumnWidth(i,70) 
-        self.tabla_vuelos.setGeometry(50,50,691,150)
-        self.iniciarTabla(self.tabla_vuelos)     
+            self.tabla_empleados.setColumnWidth(i,70) 
+        self.tabla_empleados.setGeometry(50,200,691,150)
+        self.iniciarTabla(self.tabla_empleados)     
 
-    def datos_tabla_vuelos(self,tabla,datillos):
+    def datos_tabla_empleados(self,tabla,datillos):
         tabla.clearContents()
         row = 0
         for endian in datillos:
@@ -113,11 +105,10 @@ class Finaliza_vue(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase com
             tabla1.setAlternatingRowColors(True)# Dibujar el fondo usando colores alternados
             tabla1.verticalHeader().setDefaultSectionSize(20)# Establecer altura de las filas
           
-    def cancelar(self):
-        self.close()
+
 
 if __name__ == "__main__":
     app =  QtWidgets.QApplication(sys.argv)
-    window =Finaliza_vue()
+    window =Consulta_empleado()
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec_())   

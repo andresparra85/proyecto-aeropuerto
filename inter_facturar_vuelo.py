@@ -32,15 +32,17 @@ class Factura_vuelo(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase co
         self.btn_facturar.clicked.connect(self.facturar) #evento de facturar
         self.btn_cancelar.clicked.connect(self.cancelar) #evento de cncelar
         self.btn_imprimir.clicked.connect(self.imprime) #evento de cncelar
+        self.tabla_vuelos=QTableWidget(self)#Creacion de la tabla  
         self.todos()
      
     # funcion para boton registrar    
     def todos(self):
-        self.comboBox_vuelos.clear()
-        self.cursor.execute("SELECT * FROM vuelos where estado='En Proceso'")
-        vue = self.cursor.fetchall()
-        for ha in vue:
-            self.comboBox_vuelos.addItem(str(ha))
+        self.tabla_vuelos.clear()
+        self.cursor.execute("select * from vuelos where estado ='En Proceso' ;")  
+        mio= self.cursor.fetchall()
+        self.inicio_tabla_vuelos()#metodo para inicializar la tabla ejecucion
+        self.datos_tabla_vuelos(self.tabla_vuelos,mio)
+        self.tabla_vuelos.show()  
             
         
     
@@ -67,15 +69,11 @@ class Factura_vuelo(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase co
             num=self.lineEdit_num_tiquetes.text()
             ced=self.lineEdit_cliente.text()
             if self.verifica_cedula(ced) and int(num) >=0:
-                vue1=self.comboBox_vuelos.currentText() 
-                t=""
-                for i in vue1:
-                    if i=="(" or i=="'":
-                        pass
-                    elif i ==",":
-                        break 
-                    else:
-                        t+=str(i)        
+                row = self.tabla_vuelos.currentRow()
+                item = self.tabla_vuelos.item(row,0)
+                t=None
+                if item:
+                    t=item.text()               
                 if t:
                     msg1=QMessageBox()
                     msg1.setWindowTitle("Factura vuelos")
@@ -106,8 +104,6 @@ class Factura_vuelo(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase co
         
 
     def cancelar(self):
-        if self.b:
-            self.conn.close()
         self.close()
 
     def imprime(self):
@@ -164,6 +160,49 @@ class Factura_vuelo(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase co
         self.conn.commit()
         self.todos()
 
+    def inicio_tabla_vuelos(self):
+        self.tabla_vuelos.setColumnCount(9)
+        nombreColumnas = ( "id_vuelo","Origen","Destino","fecha", "hora","hangar","avion","# puestos","precio")
+        self.tabla_vuelos.setHorizontalHeaderLabels(nombreColumnas)
+        for i in range(7):
+            self.tabla_vuelos.setColumnWidth(i,70) 
+        self.tabla_vuelos.setGeometry(200,50,760,100)
+        self.iniciarTabla(self.tabla_vuelos)     
+
+    def datos_tabla_vuelos(self,tabla,datillos):
+        tabla.clearContents()
+        row = 0
+        for endian in datillos:
+            tabla.setRowCount(row+1)
+            tabla.setItem(row, 0, QTableWidgetItem(endian[0]))
+            tabla.setItem(row, 1, QTableWidgetItem(endian[1]))
+            tabla.setItem(row, 2, QTableWidgetItem(endian[2]))
+            tabla.setItem(row, 3, QTableWidgetItem(endian[3]))
+            tabla.setItem(row, 4, QTableWidgetItem(endian[4]))
+            tabla.setItem(row, 5, QTableWidgetItem(endian[5]))
+            tabla.setItem(row, 6, QTableWidgetItem(endian[6]))
+            tabla.setItem(row, 7, QTableWidgetItem(endian[7]))
+            tabla.setItem(row, 8, QTableWidgetItem(endian[8]))
+            row += 1
+
+    def iniciarTabla(self,tabla1):
+            tabla1.setStyleSheet('background-color: rgb(255, 255, 255);')
+            tabla1.setEditTriggers(QAbstractItemView.NoEditTriggers)# Deshabilitar edición
+            tabla1.setDragDropOverwriteMode(False)# Deshabilitar el comportamiento de arrastrar y soltar
+            tabla1.setSelectionBehavior(QAbstractItemView.SelectRows) # Seleccionar toda la fila
+            tabla1.setSelectionMode(QAbstractItemView.SingleSelection)# Seleccionar una fila a la vez
+            tabla1.setTextElideMode(Qt.ElideRight)# Qt.ElideNone 
+            tabla1.setWordWrap(False) # Establecer el ajuste de palabras del texto
+            tabla1.setSortingEnabled(False)# Deshabilitar clasificación
+            tabla1.setRowCount(0)
+            tabla1.horizontalHeader().setDefaultAlignment(Qt.AlignHCenter|Qt.AlignVCenter|
+                                                            Qt.AlignCenter)# Alineación del texto del encabezado
+            tabla1.horizontalHeader().setHighlightSections(False)# Deshabilitar resaltado del texto del encabezado al seleccionar una fila
+            tabla1.horizontalHeader().setStretchLastSection(True) # Hacer que la última sección visible del encabezado ocupa todo el espacio disponible
+            tabla1.verticalHeader().setVisible(False)# Ocultar encabezado vertical
+            tabla1.setAlternatingRowColors(True)# Dibujar el fondo usando colores alternados
+            tabla1.verticalHeader().setDefaultSectionSize(20)# Establecer altura de las filas
+          
        
    
 

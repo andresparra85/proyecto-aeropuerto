@@ -32,14 +32,15 @@ class Sub_Menu(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como ta
     def registra_hangar(self,window):
         window.show()
     def registra_vues(self,window):
+        window.todos()
         window.show()    
     def finaliza_vues(self,window):
+        window.agrega()
         window.show()      
  
         
 if __name__ == "__main__":
     app =  QtWidgets.QApplication(sys.argv)
-    
     window =Sub_Menu()
     window.show()
     sys.exit(app.exec_())
