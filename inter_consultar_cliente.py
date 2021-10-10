@@ -5,8 +5,9 @@ from PyQt5.QtGui import*
 from PyQt5.QtWidgets import*
 import psycopg2 #importar la libreria 
 
-qtCreatorFile = "inter_consultar_cliente.ui" # Nombre del archivo que creamos en Qt dessigener en nuestro caso calculadora_suma.iu.
+qtCreatorFile = "inter_consultar_cliente.ui" #Nombre del archivo que creamos en Qt dessigener en nuestro caso calculadora_suma.iu.
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
+
 class Consultar_cliente(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como tal siempre igual
     def __init__(self):#metodo constructor 
         QtWidgets.QMainWindow.__init__(self)
@@ -61,10 +62,10 @@ class Consultar_cliente(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clas
  
     def inicio_tabla_clientes(self):
         self.tabla_clientes.setColumnCount(6)
-        nombreColumnas = ( "Cedula","Nombre","Telefono", "Correo","Direccion","Fecha de nacimiento")
+        nombreColumnas = ( "Cedula","Nombre","Correo","Direccion","Fecha Nacimiento","Telefono")
         self.tabla_clientes.setHorizontalHeaderLabels(nombreColumnas)
         for i in range(5):
-            self.tabla_clientes.setColumnWidth(i,70) 
+            self.tabla_clientes.setColumnWidth(i,110) 
         self.tabla_clientes.setGeometry(50,200,691,150)
         self.iniciarTabla(self.tabla_clientes)     
 
