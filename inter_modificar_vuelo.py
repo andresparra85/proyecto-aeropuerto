@@ -130,7 +130,9 @@ class Modifica_vuelo(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase c
                 self.comboBox_estado.setCurrentIndex(1)
             self.todos() 
             self.lineEdit_cant_puestos.setValidator(QtGui.QDoubleValidator())
-            self.lineEdit_precio_tickets.setValidator(QtGui.QDoubleValidator())    
+            self.lineEdit_precio_tickets.setValidator(QtGui.QDoubleValidator())  
+            self.cursor.execute("update hangares set estado ='Libre' where id_hangar ='"+str(c[4])+"';")
+            self.conn.commit ()  
         else:
             msg.setText("el vuelo con id : "+id_vuelo+" no se encuentra registrado")
             x=msg.exec_() 

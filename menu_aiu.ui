@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>380</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>160</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Consultar Empleado</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_registro_empleado">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>60</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+font: 90 20pt &quot;MS Shell Dlg 2&quot;;
+  color:rgb(255, 255, 255);
+  
+	background-color: rgb(104, 127, 143);
+border-radius:30px;
+}
+QPushButton:hover{
+background-color: rgb(255, 0,0 );
+	color:rgb(255, 255, 255);
+}
+
+QPushButton{
+
+  color:rgb(255, 255, 255);
+  
+	
+	background-color: rgb(141, 141, 141);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Registrar empleado</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>70</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Registrar Empleado</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_consultar_empleado">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>150</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+font: 90 20pt &quot;MS Shell Dlg 2&quot;;
+  color:rgb(255, 255, 255);
+  
+	background-color: rgb(104, 127, 143);
+border-radius:30px;
+}
+QPushButton:hover{
+background-color: rgb(255, 0,0 );
+	color:rgb(255, 255, 255);
+}
+
+QPushButton{
+
+  color:rgb(255, 255, 255);
+  
+	
+	background-color: rgb(141, 141, 141);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Consultar empleado</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>250</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Modificar Empleado</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_modificar_empleado">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>240</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+font: 90 20pt &quot;MS Shell Dlg 2&quot;;
+  color:rgb(255, 255, 255);
+  
+	background-color: rgb(104, 127, 143);
+border-radius:30px;
+}
+QPushButton:hover{
+background-color: rgb(255, 0,0 );
+	color:rgb(255, 255, 255);
+}
+
+QPushButton{
+
+  color:rgb(255, 255, 255);
+  
+	
+	background-color: rgb(141, 141, 141);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Modificar Empleado</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

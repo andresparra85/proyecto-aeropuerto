@@ -4,12 +4,10 @@ from PyQt5.QtCore import*
 from PyQt5.QtGui import*
 from functools import partial
 from PyQt5.QtWidgets import*
-from inter_registrar_cliente import Registre_clien
-from inter_registrar_empleado import Registrar_emple
-from inter_registrar_vuelo import Registre_vuelo
-from inter_finalizar_vuelo import Finaliza_vue
-from inter_facturar_vuelo import Factura_vuelo
-from sub_menu import Sub_Menu
+from sub_menu import Sub_Menu_av
+from submenu_aiu import Sub_Menu_aiu
+from sub_menu_gv import Sub_Menu_gv
+from sub_menu_ic import Sub_Menu_ic
 #Librerias elementales para poder correr nuestros archivos creados en el QT dessigner
 
 qtCreatorFile = "menu.ui" # Nombre del archivo que creamos en Qt dessigener en nuestro caso calculadora_suma.iu.
@@ -21,10 +19,10 @@ class Menu(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como tal se
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
 
-        self.w1 =Registre_clien()
-        self.w2 =Registrar_emple()
-        self.w3_1 =Sub_Menu()
-        self.w4=Factura_vuelo()
+        self.w1 =Sub_Menu_ic()
+        self.w2 =Sub_Menu_aiu()
+        self.w3_1 =Sub_Menu_av()
+        self.w4=Sub_Menu_gv()
         
         self.setupUi(self)
         self.btn_admi_clies.clicked.connect((partial(self.adminitra_cliets,self.w1))) #evento de registrar
@@ -39,7 +37,7 @@ class Menu(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como tal se
     def adminitra_vuelo(self,window):
         window.show()      
     def factura_vuelo(self,window):
-        window.todos()
+        window.w1.todos()
         window.show()      
         
             

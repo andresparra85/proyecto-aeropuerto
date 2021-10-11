@@ -23,7 +23,7 @@ class Consulta_empleado(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clas
         self.tabla_empleados=QTableWidget(self)#Creacion de la tabla       
         self.inicio_tabla_empleados()          
         self.btn_consultar.clicked.connect(self.consultar) #evento de registrar
-        #self.btn_limpiar.clicked.connect(self.limpiar) #evento de cncelar
+        self.btn_limpiar.clicked.connect(self.limpiar) #evento de cncelar
 
     def consultar(self):
         msg=QMessageBox() 
@@ -48,8 +48,6 @@ class Consulta_empleado(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clas
             msg.setText("Campos vacios")
         x=msg.exec_()    
 
-    
-
     def verifica_cedula(self,ced):
         sql="select * from empleados where cedula ='"+ced+"';"
         self.cursor.execute(sql)#
@@ -59,9 +57,7 @@ class Consulta_empleado(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clas
             return True
         else:
             return False
-                  
-      
-
+                       
     def inicio_tabla_empleados(self):
         self.tabla_empleados.setColumnCount(9)
         nombreColumnas = ( "Cedula","Nombre","Telefono", "Correo","Direccion","Edad","Saldo","Fecha ingreso","Estado")
@@ -104,9 +100,12 @@ class Consulta_empleado(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clas
             tabla1.verticalHeader().setVisible(False)# Ocultar encabezado vertical
             tabla1.setAlternatingRowColors(True)# Dibujar el fondo usando colores alternados
             tabla1.verticalHeader().setDefaultSectionSize(20)# Establecer altura de las filas
+
+    def limpiar(self):
+        self.lineEdit_cedula.clear()
+        self.tabla_empleados.clear()  
+        self.inicio_tabla_empleados()      
           
-
-
 if __name__ == "__main__":
     app =  QtWidgets.QApplication(sys.argv)
     window =Consulta_empleado()

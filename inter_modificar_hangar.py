@@ -8,7 +8,7 @@ from functools import partial
 #Librerias elementales para poder correr nuestros archivos creados en el QT dessigner
 qtCreatorFile = "inter_modificar_hangar.ui" # Nombre del archivo que creamos en Qt dessigener en nuestro caso calculadora_suma.iu.
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)# nose que hace pero siempre va jajajaja
-class Modifica_empleado(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como tal seiempre igual
+class Modifica_hangar(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como tal seiempre igual
     def __init__(self):#metodo constructor 
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
@@ -94,6 +94,6 @@ class Modifica_empleado(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clas
 
 if __name__ == "__main__":
     app =  QtWidgets.QApplication(sys.argv)
-    window =Modifica_empleado()
+    window =Modifica_hangar()
     window.show()
     sys.exit(app.exec_())        
