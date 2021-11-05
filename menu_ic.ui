@@ -20,8 +20,8 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>110</y>
+      <x>130</x>
+      <y>70</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -38,8 +38,8 @@ color: rgb(255, 0, 0);</string>
    <widget class="QPushButton" name="btn_cliente">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>100</y>
+      <x>340</x>
+      <y>60</y>
       <width>321</width>
       <height>61</height>
      </rect>
@@ -73,8 +73,8 @@ QPushButton{
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>250</y>
+      <x>130</x>
+      <y>150</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -91,8 +91,8 @@ color: rgb(255, 0, 0);</string>
    <widget class="QPushButton" name="btn_consulta">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>240</y>
+      <x>340</x>
+      <y>140</y>
       <width>321</width>
       <height>61</height>
      </rect>
@@ -121,6 +121,112 @@ QPushButton{
     </property>
     <property name="text">
      <string>Consultar cliente</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_modifica">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>230</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+font: 90 20pt &quot;MS Shell Dlg 2&quot;;
+  color:rgb(255, 255, 255);
+  
+	background-color: rgb(104, 127, 143);
+border-radius:30px;
+}
+QPushButton:hover{
+background-color: rgb(255, 0,0 );
+	color:rgb(255, 255, 255);
+}
+
+QPushButton{
+
+  color:rgb(255, 255, 255);
+  
+	
+	background-color: rgb(141, 141, 141);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Modificar cliente</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>320</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>visualiar clientes</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>240</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Registrar cliente</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_visualizar">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>310</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+font: 90 20pt &quot;MS Shell Dlg 2&quot;;
+  color:rgb(255, 255, 255);
+  
+	background-color: rgb(104, 127, 143);
+border-radius:30px;
+}
+QPushButton:hover{
+background-color: rgb(255, 0,0 );
+	color:rgb(255, 255, 255);
+}
+
+QPushButton{
+
+  color:rgb(255, 255, 255);
+  
+	
+	background-color: rgb(141, 141, 141);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Visualizar clientes</string>
     </property>
    </widget>
   </widget>

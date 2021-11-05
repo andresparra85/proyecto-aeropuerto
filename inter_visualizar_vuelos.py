@@ -25,9 +25,7 @@ class visualiza_vuelos(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase
         self.visualizar()        
         self.btn_cerrar.clicked.connect(self.clos) #evento de cncelar
         
-
     def visualizar(self):
-      
         self.tabla_vuelos.clear()
         self.cursor.execute("select * from vuelos;")  
         mio= self.cursor.fetchall()

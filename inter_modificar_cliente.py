@@ -44,7 +44,7 @@ class Modifica_cliente(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase
         if self.verifica_cedula(ced):
             if b:
                 self.genera_datos()
-                self.cursor.execute("update clientes set nombre ='"+nom+"',telefono='"+tel+"',correo='"+correo+"',direccion='"+direc+"',fecha_nacimiento='"+fecha+"';")
+                self.cursor.execute("update clientes set nombre ='"+nom+"',telefono='"+tel+"',correo='"+correo+"',direccion='"+direc+"',fecha_nacimiento='"+fecha+"' where cedula='"+ced+"';")
                 self.conn.commit()
                 msg.setText("El cliente con cedula : "+ced+" se modifico correctamente")
             else:
