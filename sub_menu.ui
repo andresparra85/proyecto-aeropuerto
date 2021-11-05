@@ -21,7 +21,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>100</y>
+      <y>200</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -39,7 +39,7 @@ color: rgb(255, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>190</y>
+      <y>270</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -110,7 +110,7 @@ QPushButton{
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>90</y>
+      <y>190</y>
       <width>321</width>
       <height>61</height>
      </rect>
@@ -145,7 +145,7 @@ QPushButton{
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>180</y>
+      <y>260</y>
       <width>321</width>
       <height>61</height>
      </rect>
@@ -180,7 +180,7 @@ QPushButton{
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>280</y>
+      <y>340</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -198,7 +198,7 @@ color: rgb(255, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>270</y>
+      <y>330</y>
       <width>321</width>
       <height>61</height>
      </rect>
@@ -233,7 +233,7 @@ QPushButton{
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>370</y>
+      <y>400</y>
       <width>321</width>
       <height>61</height>
      </rect>
@@ -268,7 +268,7 @@ QPushButton{
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>370</y>
+      <y>410</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -286,7 +286,7 @@ color: rgb(255, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>460</y>
+      <y>80</y>
       <width>321</width>
       <height>61</height>
      </rect>
@@ -320,6 +320,24 @@ QPushButton{
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
+      <x>50</x>
+      <y>80</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Modificar Hangar:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
       <x>40</x>
       <y>480</y>
       <width>211</width>
@@ -332,7 +350,42 @@ font: 75 14pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(255, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Modificar Hangar:</string>
+     <string>visualizar vuelos:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_visualizar">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>470</y>
+      <width>321</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+font: 90 20pt &quot;MS Shell Dlg 2&quot;;
+  color:rgb(255, 255, 255);
+  
+	background-color: rgb(104, 127, 143);
+border-radius:30px;
+}
+QPushButton:hover{
+background-color: rgb(255, 0,0 );
+	color:rgb(255, 255, 255);
+}
+
+QPushButton{
+
+  color:rgb(255, 255, 255);
+  
+	
+	background-color: rgb(141, 141, 141);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>visualizar vuelos</string>
     </property>
    </widget>
   </widget>

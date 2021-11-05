@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import*
 from inter_registrar_empleado import Registrar_emple
 from inter_consultar_empleado import Consulta_empleado
 from inter_modificar_empleado import Modifica_empleado
+from inter_visualizar_empleados import visualiza_empleados
 
 #Librerias elementales para poder correr nuestros archivos creados en el QT dessigner
 
@@ -22,6 +23,7 @@ class Sub_Menu_aiu(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase com
         self.w1 =Registrar_emple()
         self.w2=Consulta_empleado()
         self.w3=Modifica_empleado()
+        self.w4=visualiza_empleados()
     
     
         
@@ -29,6 +31,7 @@ class Sub_Menu_aiu(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase com
         self.btn_registro_empleado.clicked.connect((partial(self.registra_empleado,self.w1))) #evento de registrar 
         self.btn_consultar_empleado.clicked.connect((partial(self.consulta_empleado,self.w2)))
         self.btn_modificar_empleado.clicked.connect((partial(self.modifica_empleado,self.w3)))
+        self.btn_visualiza.clicked.connect((partial(self.visu,self.w4)))
 
       
     def registra_empleado(self,window):
@@ -40,6 +43,9 @@ class Sub_Menu_aiu(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase com
     def consulta_empleado(self,window):
         window.show()   
 
+    def visu(self,window):
+        window.visualizar()
+        window.show()   
       
 
  

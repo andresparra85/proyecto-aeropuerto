@@ -10,6 +10,7 @@ from inter_finalizar_vuelo import Finaliza_vue
 from inter_modificar_vuelo import Modifica_vuelo
 from inter_consultar_vuelo import Consulta_vuelo
 from inter_modificar_hangar import Modifica_hangar
+from inter_visualizar_vuelos import visualiza_vuelos
 
 #Librerias elementales para poder correr nuestros archivos creados en el QT dessigner
 
@@ -28,7 +29,7 @@ class Sub_Menu_av(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como
         self.w4=Modifica_vuelo()
         self.w5=Consulta_vuelo()
         self.w6=Modifica_hangar()
-    
+        self.w7=visualiza_vuelos()
         
         self.setupUi(self)
         self.btn_registro_hangar.clicked.connect((partial(self.registra_hangar,self.w1))) #evento de registrar
@@ -37,6 +38,7 @@ class Sub_Menu_av(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como
         self.btn_modifica_vuelos.clicked.connect((partial(self.modifica_vuelo,self.w4))) 
         self.btn_consulta_vuelos.clicked.connect((partial(self.consulta_vuelo,self.w5)))
         self.btn_modifica_hangar.clicked.connect((partial(self.modifica_hangar,self.w6)))
+        self.btn_visualizar.clicked.connect((partial(self.visu,self.w7)))
 
       
     def registra_hangar(self,window):
@@ -55,7 +57,11 @@ class Sub_Menu_av(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como
         window.show()   
 
     def modifica_hangar(self,window):
-        window.show()       
+        window.show()  
+
+    def visu(self,window):
+        window.visualizar()
+        window.show()  
 
  
         

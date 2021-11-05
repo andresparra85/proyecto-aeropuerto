@@ -191,7 +191,7 @@ font: 75 14pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(255, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Registrar cliente</string>
+     <string>Modificar cliente</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_visualizar">
