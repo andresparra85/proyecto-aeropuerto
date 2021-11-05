@@ -20,28 +20,18 @@ class Sub_Menu_ic(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase como
         Ui_MainWindow.__init__(self)
 
         self.w1 =Registre_clien()
-        self.w2=Consultar_cliente()
-   
-    
-    
-        
+        self.w2=Consultar_cliente()     
         self.setupUi(self)
         self.btn_cliente.clicked.connect((partial(self.registra,self.w1))) #evento de registrar 
         self.btn_consulta.clicked.connect((partial(self.consulta,self.w2)))
         
-
       
     def registra(self,window):
         window.show()
     
-
     def consulta(self,window):
         window.show()   
-
-      
-
- 
-        
+         
 if __name__ == "__main__":
     app =  QtWidgets.QApplication(sys.argv)
     window =Sub_Menu_ic()

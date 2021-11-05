@@ -56,7 +56,7 @@ QPushButton{
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>50</y>
+      <y>40</y>
       <width>151</width>
       <height>51</height>
      </rect>

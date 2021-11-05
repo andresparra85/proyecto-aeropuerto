@@ -99,7 +99,7 @@ class Registre_vuelo(QtWidgets.QMainWindow, Ui_MainWindow):# nobre de la clase c
             # aqui verificamos si el cliente existe 
             if self.verifica_hangar(str(hangar)) and b:
                 msg.setIcon(QMessageBox.Information)
-                msg.setText("El vuelo : " +str(self.m()) +" con Origen : " + origen+ 
+                msg.setText("El vuelo : " +str(self.m()+10) +" con Origen : " + origen+ 
                     " y destino : "+destino+ " se registro satisfactoriamente")
                 #modificar estado del hangar :
                 self.cursor.execute("update hangares set estado ='Ocupado' where id_hangar ='"+hangar+"';")
